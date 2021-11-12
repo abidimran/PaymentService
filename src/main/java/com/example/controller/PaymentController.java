@@ -55,12 +55,11 @@ public class PaymentController {
 	}
 
 	@PostMapping("/payment")
-	public ResponseEntity<List<Payment>> creatingPayment(@RequestBody Payment payment){
+	public ResponseEntity<Payment> creatingPayment(@RequestBody Payment payment){
 		System.out.println("PaymentStatus: "+payment.getPaymentStatus()+
 				" PaymentDate: "+payment.getPaymentDate());
-		paymentService.savePayment(payment);
-		List<Payment> payments = paymentService.getAllPaymentDetails();
-		return ResponseEntity.status(HttpStatus.OK).body(payments);
+		Payment paymentResponse = paymentService.savePayment(payment);
+		return ResponseEntity.status(HttpStatus.OK).body(paymentResponse);
 	}
 
 	@DeleteMapping("/payment/{paymentId}")

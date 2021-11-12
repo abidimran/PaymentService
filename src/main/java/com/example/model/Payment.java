@@ -34,6 +34,7 @@ public class Payment implements Serializable{
 	private Integer paymentId;
 	private String paymentStatus;
 	private Date paymentDate;
+	private Integer orderId;
 	
 	
 

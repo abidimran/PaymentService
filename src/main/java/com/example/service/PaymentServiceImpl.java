@@ -12,6 +12,10 @@ import com.example.repository.PaymentRepository;
 public class PaymentServiceImpl implements PaymentService{
 
 	private PaymentRepository paymentRepository;
+	
+	public PaymentServiceImpl(PaymentRepository paymentRepository) {
+		this.paymentRepository = paymentRepository;
+	}
 
 	public List<Payment> getAllPaymentDetails() {
 		return paymentRepository.findAll();
